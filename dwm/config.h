@@ -64,6 +64,9 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *file_exp[] = { "thunar", NULL };
+/* use literal array and SHCMD macro to execute complex commands */
+static const char screenshooter[] = "maim -sq | xclip -sel clip -t image/png";
 /* wireplumber (wpctl) */
 static const char *up_vol[]   = { "wpctl", "set-volume", "-l", "1.5", "@DEFAULT_AUDIO_SINK@", "10%+",   NULL };
 static const char *down_vol[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "10%-",   NULL };
@@ -73,6 +76,8 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_e,      spawn,          {.v = file_exp } },
+	{ 0,                            XK_Print,  spawn,          SHCMD(screenshooter) },
   { MODKEY,                       XK_F1,     spawn,          {.v = down_vol } },
   { MODKEY,                       XK_F2,     spawn,          {.v = up_vol } },
   { MODKEY,                       XK_F3,     spawn,          {.v = mute_vol } },
