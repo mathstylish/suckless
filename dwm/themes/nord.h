@@ -1,24 +1,12 @@
-static const char norm_fg[] = "#88C0D0";
-static const char norm_bg[] = "#2E3440";
-static const char norm_border[] = "#4C566A";
-
-static const char bar_border[] = "#4C566A";
-
-static const char sel_fg[] = "#D08770";
-static const char sel_bg[] = "#4C566A";
-static const char sel_border[] = "#8FBCBB";
-
-// static const char urg_fg[] = "#8FBCBB";
-// static const char urg_bg[] = "#88C0D0";
-// static const char urg_border[] = "#88C0D0";
-
-/* static const char status_fg[] = "#B48EAD"; */
-
-static const char *colors[][3]      = {
-
-    /*               fg           bg         border                         */
-    [SchemeNorm]    = { norm_fg,  norm_bg,   norm_border }, // unfocused wins
-    [SchemeSel]     = { sel_fg,   sel_bg,    sel_border },  // the focused win
-    // [SchemeUrg]     = { urg_fg,   urg_bg,    urg_border },
- /*   [SchemeStatus]  = { status_fg,   norm_bg,   sel_fg }, // Statusbar right {text,background,not used but cannot be empty} */
-};
+static const char black[]       = "#2A303C";
+static const char white[]       = "#D8DEE9";
+static const char gray2[]       = "#3B4252"; // unfocused window border
+static const char gray3[]       = "#606672";
+static const char gray4[]       = "#6d8dad";
+static const char blue[]        = "#81A1C1";  // focused window border
+static const char green[]       = "#89b482";
+static const char red[]         = "#d57780";
+static const char orange[]      = "#caaa6a";
+static const char yellow[]      = "#EBCB8B";
+static const char pink[]        = "#e39a83";
+static const char col_borderbar[]  = "#2A303C"; // inner border

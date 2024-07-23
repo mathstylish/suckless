@@ -1,31 +1,13 @@
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+st/st
+st/config.h
+st/*.o
+st/*.orig
+st/*.rej
 
-# Precompiled Headers
-*.gch
-*.pch
+dwm/st
+dwm/config.h
+dwm/*.o
+dwm/*.orig
+dwm/*.rej
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-*.rej
-*.orig
+.ccls-cache/
