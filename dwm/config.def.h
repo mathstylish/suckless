@@ -32,7 +32,7 @@ static const char *up_vol[]         = { "wpctl", "set-volume", "-l", "1.5", "@DE
 static const char *down_vol[]       = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "10%-",   NULL };
 static const char *mute_vol[]       = { "wpctl", "set-mute",   "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
 static const char *termcmd[]        = { "st", NULL };
-static const char *file_exp[]       = { "thunar", NULL };
+// static const char *file_exp[]       = { "thunar", NULL };
 /* use literal array and SHCMD macro to execute complex commands */
 static const char screenshooter_full[] = "maim | xclip -selection clipboard -t image/png";
 static const char screenshooter_cropped[] = "maim --select | xclip -selection clipboard -t image/png";
@@ -88,11 +88,11 @@ static const Rule rules[] = {
      *	WM_CLASS(STRING) = instance, class
      *	WM_NAME(STRING) = title
      */
-    /* class                      instance    title       tags mask     iscentered   isfloating   monitor */
-    { "Firefox",                  NULL,       NULL,       1 << 0,       0,           0,           0 },
-    { "firefoxdeveloperedition",  NULL,       NULL,       1 << 0,       0,           0,           0 },
-    { "St",                       NULL,       NULL,       1 << 1,       0,           0,           1 },
-    { "discord",                  NULL,       NULL,       1 << 2,       0,           0,           0 },
+    /* class                      instance    title       tags mask     switchtotag  iscentered   isfloating   monitor */
+    { "Firefox",                  NULL,       NULL,       1 << 0,       1,           0,           0,           0 },
+    { "firefoxdeveloperedition",  NULL,       NULL,       1 << 0,       1,           0,           0,           0 },
+    { "St",                       NULL,       NULL,       1 << 1,       1,           0,           0,           1 },
+    { "discord",                  NULL,       NULL,       1 << 2,       1,           0,           0,           0 },
 };
 
 /* layout(s) */

@@ -187,6 +187,7 @@ struct Client {
   int basew, baseh, incw, inch, maxw, maxh, minw, minh, hintsvalid;
   int bw, oldbw;
   unsigned int tags;
+  unsigned int switchtotag;
   int isfixed, iscentered, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
  	unsigned int icw, ich; Picture icon;
 	int beingmoved;
@@ -213,6 +214,7 @@ typedef struct {
   const char *instance;
   const char *title;
   unsigned int tags;
+  unsigned int switchtotag;
   int iscentered;
   int isfloating;
   int monitor;
@@ -493,6 +495,11 @@ void applyrules(Client *c) {
         ;
       if (m)
         c->mon = m;
+      if (r->switchtotag) {
+        Arg a = { .ui = r->tags };
+        c->switchtotag = selmon->tagset[selmon->seltags];
+        view(&a);
+      }
     }
   }
   if (ch.res_class)
@@ -3285,10 +3292,14 @@ void unmanage(Client *c, int destroyed) {
     XSetErrorHandler(xerror);
     XUngrabServer(dpy);
   }
-  free(c);
   focus(NULL);
   updateclientlist();
   arrange(m);
+  if (c->switchtotag) {
+    Arg a = { .ui = c->switchtotag };
+    view(&a);
+  }
+  free(c);
 }
 
 void unmapnotify(XEvent *e) {
