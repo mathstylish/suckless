@@ -103,7 +103,7 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 #define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
 #include "functions.h"
-
+#include "exitdwm.c"
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
@@ -227,7 +227,7 @@ static const Key keys[] = {
     { MODKEY,                           XK_q,       killclient,     {0} },
 
     // quit
-	  { MODKEY|ShiftMask,                 XK_q,       quit,           {1} }, 
+	  { MODKEY|ShiftMask,                 XK_q,       exitdwm,        {0} }, 
 
     // restart
     { MODKEY|ShiftMask,                 XK_r,       restart,        {0} },
