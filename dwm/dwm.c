@@ -289,6 +289,7 @@ static void placemouse(const Arg *arg);
 static void pop(Client *c);
 static void propertynotify(XEvent *e);
 static void restart(const Arg *arg);
+static void quit(const Arg *arg);
 static Client *recttoclient(int x, int y, int w, int h);
 static Monitor *recttomon(int x, int y, int w, int h);
 static void removesystrayicon(Client *i);
@@ -321,6 +322,8 @@ static void show(Client *c);
 static void showhide(Client *c);
 static void showtagpreview(int tag);
 static void sigchld(int unused);
+static void sighup(int unused);
+static void sigterm(int unused);
 static void spawn(const Arg *arg);
 static void switchtag(void);
 static Monitor *systraytomon(Monitor *m);
@@ -391,6 +394,7 @@ static void (*handler[LASTEvent])(XEvent *) = {
     [ResizeRequest] = resizerequest,
     [UnmapNotify] = unmapnotify};
 static Atom wmatom[WMLast], netatom[NetLast], xatom[XLast];
+static int restart_req = 0;
 static int running = 1;
 static Cur *cursor[CurLast];
 static Clr **scheme, clrborder;
@@ -2473,6 +2477,11 @@ void propertynotify(XEvent *e) {
   }
 }
 
+void quit(const Arg *arg) {
+  if(arg->i) restart_req = 1;
+  running = 0;
+}
+
 void restart(const Arg *arg) {
   running = 0;
 }
@@ -2881,6 +2890,9 @@ void setup(void) {
   /* clean up any zombies immediately */
   sigchld(0);
 
+  signal(SIGHUP, sighup);
+  signal(SIGTERM, sigterm);
+
   /* init screen */
   screen = DefaultScreen(dpy);
   sw = DisplayWidth(dpy, screen);
@@ -3042,6 +3054,15 @@ void sigchld(int unused) {
     ;
 }
 
+void sighup(int unused) {
+  Arg a = {.i = 1};
+  quit(&a);
+}
+
+void sigterm(int unused) {
+  Arg a = {.i = 1};
+  quit(&a);
+}
 
 void spawn(const Arg *arg) {
   if (fork() == 0) {
@@ -3839,6 +3860,7 @@ int main(int argc, char *argv[]) {
 #endif /* __OpenBSD__ */
   scan();
   run();
+  if(restart_req) execvp(argv[0], argv);
   cleanup();
   XCloseDisplay(dpy);
   return EXIT_SUCCESS;

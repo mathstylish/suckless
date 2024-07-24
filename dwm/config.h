@@ -141,7 +141,7 @@ static const Key keys[] = {
     /* modifier                         key         function        argument */
 
     { MODKEY,                           XK_Return, spawn,          {.v = termcmd } },
-    { MODKEY,                           XK_e,      spawn,          {.v = file_exp } },
+    // { MODKEY,                           XK_e,      spawn,          {.v = file_exp } },
     { MODKEY,                           XK_F1,     spawn,          {.v = down_vol } },
     { MODKEY,                           XK_F2,     spawn,          {.v = up_vol } },
     { MODKEY,                           XK_F3,     spawn,          {.v = mute_vol } },
@@ -226,8 +226,11 @@ static const Key keys[] = {
     // kill window
     { MODKEY,                           XK_q,       killclient,     {0} },
 
+    // quit
+	  { MODKEY|ShiftMask,                 XK_q,       quit,           {1} }, 
+
     // restart
-    { MODKEY|ShiftMask,                 XK_r,       restart,           {0} },
+    { MODKEY|ShiftMask,                 XK_r,       restart,        {0} },
 
     // hide & restore windows
     { MODKEY,                           XK_e,       hidewin,        {0} },
