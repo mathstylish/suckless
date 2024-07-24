@@ -4,7 +4,7 @@ st/*.o
 st/*.orig
 st/*.rej
 
-dwm/st
+dwm/dwm
 dwm/config.h
 dwm/*.o
 dwm/*.orig
