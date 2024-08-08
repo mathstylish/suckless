@@ -68,7 +68,7 @@ static const char *colors[][3]      = {
 static const int statmonval = 0;
 
 /* tagging */
-static char *tags[] = {"", "", "", ""};
+static char *tags[] = {"", "", "󰨞", "", "", "", ""};
 
 static const char* rofi[] = { "rofi", "-show", "drun" };
 
@@ -95,7 +95,10 @@ static const Rule rules[] = {
     { "Firefox",                  NULL,       NULL,       1 << 0,       1,           0,           0,           0 },
     { "firefoxdeveloperedition",  NULL,       NULL,       1 << 0,       1,           0,           0,           0 },
     { "St",                       NULL,       NULL,       1 << 1,       1,           0,           0,           1 },
-    { "discord",                  NULL,       NULL,       1 << 2,       1,           0,           0,           0 },
+    { "Code",                     NULL,       NULL,       1 << 2,       1,           0,           0,           1 },
+    { "SpringToolSuite4",         NULL,       NULL,       1 << 3,       1,           0,           0,           1 },
+    { "discord",                  NULL,       NULL,       1 << 4,       1,           0,           0,           0 },
+    { "Thunar",                   NULL,       NULL,       1 << 5,       1,           0,           0,           1 },
 };
 
 /* layout(s) */
