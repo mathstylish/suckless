@@ -20,6 +20,7 @@ static const int showtab            = showtab_auto;
 static const int toptab             = 1;        /* 0 means bottom tab */
 static const int floatbar           = 1;/* 1 means the bar will float(don't have padding),0 means the bar have padding */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int focusonwheel       = 0;
 static const int horizpadbar        = 5;
 static const int vertpadbar         = 8;
 static const int vertpadtab         = 35;
