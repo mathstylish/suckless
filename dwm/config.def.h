@@ -69,7 +69,7 @@ static const char *colors[][3]      = {
 static const int statmonval = 0;
 
 /* tagging */
-static char *tags[] = {"", "", "󰨞", "", "", "", ""};
+static char *tags[] = {"", "", "", "󰨞", "", ""};
 
 static const char* rofi[] = { "rofi", "-show", "drun" };
 
@@ -87,6 +87,7 @@ static const unsigned int ulinestroke   = 2; /* thickness / height of the underl
 static const unsigned int ulinevoffset  = 0; /* how far above the bottom of the bar the line should appear */
 static const int ulineall               = 0; /* 1 to show underline on all tags, 0 for just the active ones */
 
+// static char *tags[] = {"", "", "", "󰨞", "", ""}; 
 static const Rule rules[] = {
     /* xprop(1):
      *	WM_CLASS(STRING) = instance, class
@@ -96,8 +97,9 @@ static const Rule rules[] = {
     { "Firefox",                  NULL,       NULL,       1 << 0,       1,           0,           0,           0 },
     { "firefoxdeveloperedition",  NULL,       NULL,       1 << 0,       1,           0,           0,           0 },
     { "St",                       NULL,       NULL,       1 << 1,       1,           0,           0,           1 },
-    { "Code",                     NULL,       NULL,       1 << 2,       1,           0,           0,           1 },
-    { "SpringToolSuite4",         NULL,       NULL,       1 << 3,       1,           0,           0,           1 },
+    { "jetbrains-idea-ce",        NULL,       NULL,       1 << 2,       1,           0,           0,           1 },
+    { "SpringToolSuite4",         NULL,       NULL,       1 << 2,       1,           0,           0,           1 },
+    { "Code",                     NULL,       NULL,       1 << 3,       1,           0,           0,           1 },
     { "discord",                  NULL,       NULL,       1 << 4,       1,           0,           0,           0 },
     { "Thunar",                   NULL,       NULL,       1 << 5,       1,           0,           0,           1 },
 };
@@ -169,8 +171,8 @@ static const Key keys[] = {
     { MODKEY,                           XK_d,       incnmaster,     {.i = -1 } },
 
     // shift view
-    { MODKEY,                           XK_Left,    shiftview,      {.i = -1 } },
-    { MODKEY,                           XK_Right,   shiftview,      {.i = +1 } },
+    { MODKEY,                           XK_p,    shiftview,      {.i = -1 } },
+    { MODKEY,                           XK_n,   shiftview,      {.i = +1 } },
 
     // change m,cfact sizes 
     { MODKEY,                           XK_h,       setmfact,       {.f = -0.05} },
@@ -226,9 +228,9 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,                 XK_period,  tagmon,         {.i = +1 } },
 
     // change border size
-    { MODKEY|ShiftMask,                 XK_minus,   setborderpx,    {.i = -1 } },
-    { MODKEY|ShiftMask,                 XK_p,       setborderpx,    {.i = +1 } },
-    { MODKEY|ShiftMask,                 XK_w,       setborderpx,    {.i = default_border } },
+    // { MODKEY|ShiftMask,                 XK_minus,   setborderpx,    {.i = -1 } },
+    // { MODKEY|ShiftMask,                 XK_p,       setborderpx,    {.i = +1 } },
+    // { MODKEY|ShiftMask,                 XK_w,       setborderpx,    {.i = default_border } },
 
     // kill window
     { MODKEY,                           XK_q,       killclient,     {0} },
