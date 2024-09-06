@@ -10,4 +10,10 @@ dwm/*.o
 dwm/*.orig
 dwm/*.rej
 
+dmenu/dmenu
+dmenu/config.h
+dmenu/*.o
+dmenu/*.orig
+dmenu/*.rej
+
 .ccls-cache/
