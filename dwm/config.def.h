@@ -69,7 +69,8 @@ static const char *colors[][3]      = {
 static const int statmonval = 0;
 
 /* tagging */
-static char *tags[] = {"", "", "", "󰨞", "", ""};
+// static char *tags[] = {"", "", "", "󰨞", "", ""};
+static char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
 static const char* rofi[] = { "rofi", "-show", "drun" };
 
@@ -77,6 +78,7 @@ static const Launcher launchers[] = {
     /* command     name to display */
     { rofi,         "" },
 };
+
 
 static const int tagschemes[] = {
     SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4, SchemeTag5
