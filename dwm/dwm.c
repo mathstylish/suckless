@@ -3260,7 +3260,8 @@ void unmanage(Client *c, int destroyed) {
   focus(NULL);
   updateclientlist();
   arrange(m);
-  if (c->switchtotag) {
+  /* disable switch back to previous tag */
+  if (switchtagonclose && c->switchtotag) {
     Arg a = { .ui = c->switchtotag };
     view(&a);
   }
